@@ -1,0 +1,40 @@
+ssh 10.10.1.1 "killall receiver_app"
+rmmod hb_sender_tracker.ko
+killall sender_app
+killall sender_app_nb
+
+#for clients in 16 32 64 128 220 240 256 280 300 512 600
+for clients in 256 280
+do
+    for repeat in 0 1
+    do
+        echo "safetimer NB clients $clients repeat $repeat"
+        ssh 10.10.1.1 "/root/hb-latency/heartbeat/sbin/add_filter_rule.sh"
+        sleep 2
+        ssh 10.10.1.1 "/root/hb-latency/heartbeat/build/receiver_app > /dev/null" &
+        sleep 2
+        /root/hb-latency/heartbeat/build_nb/sender_app_nb &
+        ./test.sh $clients 64 ./combine-40/safetimer_nb/$clients/64 $repeat
+        killall sender_app_nb
+        sleep 2
+        ssh 10.10.1.1 "killall receiver_app"
+        ssh 10.10.1.1 "/root/hb-latency/heartbeat/sbin/del_filter_rule.sh"
+        sleep 5
+        
+        echo "safetimer clients $clients repeat $repeat"
+        ssh 10.10.1.1 "/root/hb-latency/heartbeat/sbin/add_filter_rule.sh"
+        sleep 2
+        ssh 10.10.1.1 "/root/hb-latency/heartbeat/build/receiver_app > /dev/null" &
+        sleep 2
+        insmod /root/hb-latency/heartbeat/kmodule/send/hb_sender_tracker/hb_sender_tracker.ko
+        sleep 2
+        /root/hb-latency/heartbeat/build/sender_app &
+        ./test.sh $clients 64 ./combine-40/safetimer/$clients/64 $repeat
+        killall sender_app
+        rmmod hb_sender_tracker.ko
+        sleep 2
+        ssh 10.10.1.1 "killall receiver_app"
+        ssh 10.10.1.1 "/root/hb-latency/heartbeat/sbin/del_filter_rule.sh"
+        sleep 5
+    done
+done

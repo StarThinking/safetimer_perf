@@ -6,10 +6,10 @@ packet_size=$2
 result_dir=$3
 benchmark_dir=/root/safetimer_perf/pingpong
 
-suffix="_0"
-repeat=9 #starts from 0
+suffix="_$4"
+repeat=1 #starts from 0
 server_ip="10.10.1.1"
-time=120000000 #us
+time=30000000 #us
 
 for test_num in $(seq 0 $repeat)
 do
