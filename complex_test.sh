@@ -1,14 +1,24 @@
+dir=$1
+pkt_size=64
+
+if [ "$#" -ne 1 ]
+then
+    echo "wrong parameters"
+    exit 1
+fi
+
 ssh 10.10.1.1 "killall receiver_app"
 rmmod hb_sender_tracker.ko
 killall sender_app
 killall sender_app_nb
 
 for clients in 16 32 64 128 220 240 256 300 512 600
+
 do
     for repeat in 0 1 2 3 4 5 6 7
     do
         echo "idle clients $clients repeat $repeat"
-        ./test.sh $clients 64 ./combine-32/idle/$clients/64 $repeat
+        ./test.sh $clients $pkt_size ./$dir/idle/$clients/$pkt_size $repeat
         sleep 5
 
 	echo "safetimer NB clients $clients repeat $repeat"
@@ -17,7 +27,7 @@ do
         ssh 10.10.1.1 "/root/hb-latency/heartbeat/build/receiver_app > /dev/null" &
         sleep 2
         /root/hb-latency/heartbeat/build_nb/sender_app_nb &
-        ./test.sh $clients 64 ./combine-32/safetimer_nb/$clients/64 $repeat
+        ./test.sh $clients $pkt_size ./$dir/safetimer_nb/$clients/$pkt_size $repeat
         killall sender_app_nb
         sleep 2
         ssh 10.10.1.1 "killall receiver_app"
@@ -32,7 +42,7 @@ do
         insmod /root/hb-latency/heartbeat/kmodule/send/hb_sender_tracker/hb_sender_tracker.ko
         sleep 2
         /root/hb-latency/heartbeat/build/sender_app &
-        ./test.sh $clients 64 ./combine-32/safetimer/$clients/64 $repeat
+        ./test.sh $clients $pkt_size ./$dir/safetimer/$clients/$pkt_size $repeat
         killall sender_app
         rmmod hb_sender_tracker.ko
         sleep 2

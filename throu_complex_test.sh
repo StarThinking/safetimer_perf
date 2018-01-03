@@ -1,6 +1,7 @@
 pkt_size=$1
+dir=$2
 
-if [ "$#" -ne 1 ]
+if [ "$#" -ne 2 ]
 then
     echo "wrong parameters"
     exit 1
@@ -16,7 +17,7 @@ do
     for repeat in 0 1 2 3 4
     do
         echo "idle clients $clients repeat $repeat"
-        ./test.sh $clients $pkt_size ./combine-32/idle/$clients/$pkt_size $repeat
+        ./test.sh $clients $pkt_size ./$dir/idle/$clients/$pkt_size $repeat
         sleep 5
         
         echo "safetimer clients $clients repeat $repeat"
@@ -27,7 +28,7 @@ do
         insmod /root/hb-latency/heartbeat/kmodule/send/hb_sender_tracker/hb_sender_tracker.ko
         sleep 2
         /root/hb-latency/heartbeat/build/sender_app &
-        ./test.sh $clients $pkt_size ./combine-32/safetimer/$clients/$pkt_size $repeat
+        ./test.sh $clients $pkt_size ./$dir/safetimer/$clients/$pkt_size $repeat
         killall sender_app
         rmmod hb_sender_tracker.ko
         sleep 2
