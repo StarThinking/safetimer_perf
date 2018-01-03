@@ -9,7 +9,7 @@ benchmark_dir=/root/safetimer_perf/pingpong
 suffix="_$4"
 repeat=1 #starts from 0
 server_ip="10.10.1.1"
-time=30000000 #us
+time=60000000 #us
 
 for test_num in $(seq 0 $repeat)
 do

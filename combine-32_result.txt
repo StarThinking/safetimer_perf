@@ -1,0 +1,220 @@
+sorted file ./combine-32/idle/16/64/client_lat_sorted.sum has 407284 lines
+50%: 56
+95%: 59
+99%: 62
+99.9%: 154
+avg of avg latency: 57.15
+avg of avg throughput: 18.09
+sorted file ./combine-32/safetimer_nb/16/64/client_lat_sorted.sum has 405556 lines
+50%: 57
+95%: 59
+99%: 63
+99.9%: 159
+avg of avg latency: 57.38
+avg of avg throughput: 18.01
+sorted file ./combine-32/safetimer/16/64/client_lat_sorted.sum has 403435 lines
+50%: 57
+95%: 59
+99%: 64
+99.9%: 159
+avg of avg latency: 57.65
+avg of avg throughput: 17.92
+
+sorted file ./combine-32/idle/32/64/client_lat_sorted.sum has 755945 lines
+50%: 59
+95%: 85
+99%: 99
+99.9%: 156
+avg of avg latency: 61.77
+avg of avg throughput: 33.58
+sorted file ./combine-32/safetimer_nb/32/64/client_lat_sorted.sum has 753969 lines
+50%: 59
+95%: 85
+99%: 100
+99.9%: 156
+avg of avg latency: 62.24
+avg of avg throughput: 33.49
+sorted file ./combine-32/safetimer/32/64/client_lat_sorted.sum has 751766 lines
+50%: 59
+95%: 85
+99%: 100
+99.9%: 158
+avg of avg latency: 62.13
+avg of avg throughput: 33.39
+
+sorted file ./combine-32/idle/64/64/client_lat_sorted.sum has 1243933 lines
+50%: 71
+95%: 110
+99%: 133
+99.9%: 366
+avg of avg latency: 76.64
+avg of avg throughput: 55.25
+sorted file ./combine-32/safetimer_nb/64/64/client_lat_sorted.sum has 1239639 lines
+50%: 72
+95%: 111
+99%: 134
+99.9%: 380
+avg of avg latency: 76.76
+avg of avg throughput: 55.06
+sorted file ./combine-32/safetimer/64/64/client_lat_sorted.sum has 1235673 lines
+50%: 72
+95%: 111
+99%: 134
+99.9%: 411
+avg of avg latency: 76.04
+avg of avg throughput: 54.88
+
+sorted file ./combine-32/idle/128/64/client_lat_sorted.sum has 1868856 lines
+50%: 95
+95%: 156
+99%: 199
+99.9%: 904
+avg of avg latency: 103.79
+avg of avg throughput: 82.99
+sorted file ./combine-32/safetimer_nb/128/64/client_lat_sorted.sum has 1862419 lines
+50%: 95
+95%: 157
+99%: 200
+99.9%: 911
+avg of avg latency: 106.51
+avg of avg throughput: 82.70
+sorted file ./combine-32/safetimer/128/64/client_lat_sorted.sum has 1854386 lines
+50%: 95
+95%: 157
+99%: 201
+99.9%: 806
+avg of avg latency: 103.11
+avg of avg throughput: 82.34
+
+sorted file ./combine-32/idle/220/64/client_lat_sorted.sum has 2337762 lines
+50%: 129
+95%: 229
+99%: 358
+99.9%: 1235
+avg of avg latency: 143.45
+avg of avg throughput: 103.78
+sorted file ./combine-32/safetimer_nb/220/64/client_lat_sorted.sum has 2325780 lines
+50%: 129
+95%: 230
+99%: 362
+99.9%: 1246
+avg of avg latency: 145.57
+avg of avg throughput: 103.24
+sorted file ./combine-32/safetimer/220/64/client_lat_sorted.sum has 2324671 lines
+50%: 129
+95%: 231
+99%: 363
+99.9%: 1223
+avg of avg latency: 144.28
+avg of avg throughput: 103.20
+
+sorted file ./combine-32/idle/240/64/client_lat_sorted.sum has 2427216 lines
+50%: 135
+95%: 245
+99%: 393
+99.9%: 1321
+avg of avg latency: 151.03
+avg of avg throughput: 107.74
+sorted file ./combine-32/safetimer_nb/240/64/client_lat_sorted.sum has 2419111 lines
+50%: 135
+95%: 246
+99%: 395
+99.9%: 1166
+avg of avg latency: 149.68
+avg of avg throughput: 107.38
+sorted file ./combine-32/safetimer/240/64/client_lat_sorted.sum has 2423756 lines
+50%: 135
+95%: 246
+99%: 396
+99.9%: 1148
+avg of avg latency: 152.44
+avg of avg throughput: 107.59
+
+sorted file ./combine-32/idle/256/64/client_lat_sorted.sum has 2529419 lines
+50%: 138
+95%: 250
+99%: 407
+99.9%: 1263
+avg of avg latency: 153.23
+avg of avg throughput: 112.28
+sorted file ./combine-32/safetimer_nb/256/64/client_lat_sorted.sum has 2525518 lines
+50%: 138
+95%: 251
+99%: 408
+99.9%: 1218
+avg of avg latency: 156.81
+avg of avg throughput: 112.10
+sorted file ./combine-32/safetimer/256/64/client_lat_sorted.sum has 2518839 lines
+50%: 138
+95%: 252
+99%: 411
+99.9%: 1252
+avg of avg latency: 156.96
+avg of avg throughput: 111.81
+
+sorted file ./combine-32/idle/300/64/client_lat_sorted.sum has 2658791 lines
+50%: 150
+95%: 305
+99%: 531
+99.9%: 1286
+avg of avg latency: 174.10
+avg of avg throughput: 118.00
+sorted file ./combine-32/safetimer_nb/300/64/client_lat_sorted.sum has 2655966 lines
+50%: 151
+95%: 306
+99%: 531
+99.9%: 1235
+avg of avg latency: 171.70
+avg of avg throughput: 117.88
+sorted file ./combine-32/safetimer/300/64/client_lat_sorted.sum has 2628101 lines
+50%: 151
+95%: 318
+99%: 555
+99.9%: 1306
+avg of avg latency: 175.96
+avg of avg throughput: 116.64
+
+sorted file ./combine-32/idle/512/64/client_lat_sorted.sum has 2592968 lines
+50%: 193
+95%: 856
+99%: 1384
+99.9%: 3356
+avg of avg latency: 321.68
+avg of avg throughput: 114.96
+sorted file ./combine-32/safetimer_nb/512/64/client_lat_sorted.sum has 2592053 lines
+50%: 193
+95%: 857
+99%: 1385
+99.9%: 3440
+avg of avg latency: 325.84
+avg of avg throughput: 114.93
+sorted file ./combine-32/safetimer/512/64/client_lat_sorted.sum has 2544936 lines
+50%: 198
+95%: 857
+99%: 1406
+99.9%: 3462
+avg of avg latency: 324.68
+avg of avg throughput: 112.83
+
+sorted file ./combine-32/idle/600/64/client_lat_sorted.sum has 2555367 lines
+50%: 223
+95%: 1038
+99%: 1844
+99.9%: 6000
+avg of avg latency: 394.21
+avg of avg throughput: 113.25
+sorted file ./combine-32/safetimer_nb/600/64/client_lat_sorted.sum has 2557394 lines
+50%: 222
+95%: 1043
+99%: 1846
+99.9%: 6228
+avg of avg latency: 394.02
+avg of avg throughput: 113.34
+sorted file ./combine-32/safetimer/600/64/client_lat_sorted.sum has 2515682 lines
+50%: 228
+95%: 1037
+99%: 1860
+99.9%: 6152
+avg of avg latency: 398.67
+avg of avg throughput: 111.48
+
