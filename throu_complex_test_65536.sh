@@ -1,12 +1,6 @@
 pkt_size=65536
 dir=./throu_combine-32_65536
 
-if [ "$#" -ne 2 ]
-then
-    echo "wrong parameters"
-    exit 1
-fi
-
 ssh 10.10.1.1 "killall receiver_app"
 rmmod hb_sender_tracker.ko
 killall sender_app
