@@ -1,5 +1,5 @@
-pkt_size=$1
-dir=$2
+pkt_size=65536
+dir=./throu_combine-32_65536
 
 if [ "$#" -ne 2 ]
 then
@@ -12,7 +12,7 @@ rmmod hb_sender_tracker.ko
 killall sender_app
 killall sender_app_nb
 
-for clients in 100 150 200 250 300
+for clients in 50 100 150 200
 do
     for repeat in 0 1 2 3 4
     do

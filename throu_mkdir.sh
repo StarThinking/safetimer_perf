@@ -3,7 +3,7 @@ dir=$1
 mkdir $dir/idle
 mkdir $dir/safetimer
 
-for i in 300 400 500
+for i in 50 100 150 200
 do
     mkdir $dir/idle/$i
     mkdir $dir/safetimer/$i

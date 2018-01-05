@@ -1,5 +1,5 @@
-pkt_size=$1
-dir=$2
+pkt_size=512
+dir=./throu_combine-32_512
 
 if [ "$#" -ne 2 ]
 then
