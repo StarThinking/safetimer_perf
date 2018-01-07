@@ -18,7 +18,7 @@ long current_time() {
     struct timespec spec;
 
     clock_gettime(CLOCK_REALTIME, &spec);
-    return spec.tv_sec * 1000000 + spec.tv_nsec/1.0e3;
+    return spec.tv_sec * 1000000000 + spec.tv_nsec;
 }
  
 int main(int argc , char *argv[]) {
@@ -29,7 +29,8 @@ int main(int argc , char *argv[]) {
     }
     char *ip = argv[1];
     int msg_size = atoi(argv[2]);
-    int time = atoi(argv[3]);
+    long time = atoi(argv[3]);
+    time = time * 1000; 
     //printf("ip=%s, msg_size=%d, time=%d\n", ip, msg_size, time);
 
     int sock;
@@ -95,7 +96,7 @@ int main(int argc , char *argv[]) {
     }
     close(sock);
     
-    printf("%f\n", (double)count*(double)msg_size/(double)(current_time()-start_time));
+    printf("%f\n", (double)1000000*(double)count*(double)msg_size/(double)(current_time()-start_time));
     printf("%f\n", (double)sum_latency/(double)sample_count);
     int i;
     for (i=0; i<sample_count; i++)
