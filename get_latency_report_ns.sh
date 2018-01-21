@@ -25,32 +25,45 @@ rm $dir/client_lat.sum
     lines=`wc -l < $sorted_file`
     echo sorted file $sorted_file has $lines lines
 
-    line50=`echo "scale=0; ($lines * 0.50)/1" | bc -l`
-    line95=`echo "scale=0; ($lines * 0.95)/1" | bc -l`
-    line99=`echo "scale=0; ($lines * 0.99)/1" | bc -l`
-    line999=`echo "scale=0; ($lines * 0.999)/1" | bc -l`
+    line50=`echo "scale=0; ($lines * 0.50) / 1" | bc -l`
+    line95=`echo "scale=0; ($lines * 0.95) / 1" | bc -l`
+    line99=`echo "scale=0; ($lines * 0.99) / 1" | bc -l`
+    line999=`echo "scale=0; ($lines * 0.999) / 1" | bc -l`
 
     #9995line=$(( $lines * 0.9995 ))
     #9999line=$(( $lines * 0.999 ))
     printf "%s: " "50%"
-    sed -n "$line50"p $sorted_file
+    lat_ns=$(sed -n "$line50"p $sorted_file)
+    lat_us=`echo "scale=2; $lat_ns / 1000" | bc -l`
+    echo $lat_us
     
     printf "%s: " "95%"
-    sed -n "$line95"p $sorted_file
+    lat_ns=$(sed -n "$line95"p $sorted_file)
+    lat_us=`echo "scale=2; $lat_ns / 1000" | bc -l`
+    echo $lat_us
     
     printf "%s: " "99%"
-    sed -n "$line99"p $sorted_file
+    lat_ns=$(sed -n "$line99"p $sorted_file)
+    lat_us=`echo "scale=2; $lat_ns / 1000" | bc -l`
+    echo $lat_us
     
     printf "%s: " "99.9%"
-    sed -n "$line999"p $sorted_file
+    lat_ns=$(sed -n "$line999"p $sorted_file)
+    lat_us=`echo "scale=2; $lat_ns / 1000" | bc -l`
+    echo $lat_us
 }
 
 99_lat $dir/client_lat_sorted.sum
 
 printf "%s: " "avg of avg latency"
-./get_lat_avg.sh $dir/avg_latency.sum
+lat_ns=$(./get_lat_avg.sh $dir/avg_latency.sum)
+lat_us=`echo "scale=2; $lat_ns / 1000" | bc -l`
+echo $lat_us
+
 printf "%s: " "avg of avg throughput"
-./get_throu_avg.sh $dir/avg_throughput.sum $test_count
+lat_ns=$(./get_throu_avg.sh $dir/avg_throughput.sum $test_count)
+lat_us=`echo "scale=2; $lat_ns / 1000" | bc -l`
+echo $lat_us
 
 rm $dir/client_lat_sorted.sum
 rm $dir/avg_latency.sum

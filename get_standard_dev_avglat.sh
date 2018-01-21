@@ -1,0 +1,27 @@
+#!/bin/bash
+
+dir=$1
+clients=$2
+test_count=0
+
+for test_dir in $dir/*
+do
+#    echo $test_dir
+    for client_file in $test_dir/*
+    do
+#        echo $client_file
+        head -n 2 $client_file | tail -n +2 >> $dir/lat_test_$test_count
+    done
+    ./get_throu_avg.sh $dir/lat_test_$test_count $clients >> $dir/to_cal_std
+    ((test_count++))
+done
+
+echo "mean and stardard deviation:"
+    awk '{for(i=1;i<=NF;i++) {sum[i] += $i; sumsq[i] += ($i)^2}} 
+          END {for (i=1;i<=NF;i++) {
+          printf "%f %f \n", sum[i]/NR, sqrt((sumsq[i]-sum[i]^2/NR)/NR)}
+         }' $dir/to_cal_std
+#awk '{sum+=$1; sumsq+=$1*$1} END {print (sum/NR); print sqrt(sumsq/NR - (sum/NR)^2)}' $dir/to_cal_std
+
+rm $dir/lat_test_*
+rm $dir/to_cal_std
