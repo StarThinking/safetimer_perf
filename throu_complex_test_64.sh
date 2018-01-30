@@ -1,11 +1,11 @@
-pkt_size=65536
-dir=./throu_combine_65536
+pkt_size=64
+dir=./throu_combine_64
 
 ssh 10.10.1.1 "killall receiver_app"
 rmmod hb_sender_tracker_opt.ko
 killall sender_app
 
-for clients in 3 8 20
+for clients in 40 250 400
 do
     for repeat in 0 1 2 3 4 5 6 7 8 9
     do

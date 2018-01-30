@@ -43,7 +43,7 @@ do
     echo "mean and stardard deviation of $i"p" latency:"
     awk '{for(i=1;i<=NF;i++) {sum[i] += $i; sumsq[i] += ($i)^2}} 
           END {for (i=1;i<=NF;i++) {
-          printf "%f %f \n", sum[i]/NR, sqrt((sumsq[i]-sum[i]^2/NR)/NR)}
+          printf "%f %f \n", (sum[i]/NR)/1000, (sqrt((sumsq[i]-sum[i]^2/NR)/NR))/1000}
          }' $dir/to_cal_std$i
     echo ""
 done
